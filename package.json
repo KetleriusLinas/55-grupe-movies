@@ -10,7 +10,7 @@
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [],
-    "author": "Rimantas (https://github.com/belauzas)",
+    "author": "Linas (https://github.com/KetleriusLinas)",
     "license": "MIT",
     "dependencies": {
         "dotenv": "^17.0.0",
