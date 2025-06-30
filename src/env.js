@@ -19,7 +19,6 @@ dotenv.config({
 console.log(args);
 
 
-
 export const PORT = +process.env.PORT ?? 5517;
 export const TITLE = process.env.TITLE ?? 'Project title';
 export const DB_DATABASE = process.env.DB_DATABASE ?? 'test_db';
