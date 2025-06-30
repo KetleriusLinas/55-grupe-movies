@@ -9,13 +9,12 @@ _website design project_
 
 This project is for educational porpuses only. Pull request are welcome, but priority for project authors! Thank you for your cooperation!
 
-Site published at: https://front-end-by-rimantas.github.io/55-grupe-teamwork-optech/
+Site published at: https://ketleriuslinas.github.io/55-grupe-movies/
 
-Design: ![Optech] https://optech-next.vercel.app/home-6
 
-### 🎯 Project features/goals/tools
+## 🎯 Project features/goals/tools
 
-## PUBLIC
+### PUBLIC
 
 -   home
 -   register
@@ -26,7 +25,7 @@ Design: ![Optech] https://optech-next.vercel.app/home-6
 -   movie category item
 -   logout
 
-## ADMIN
+### ADMIN
 
 -   dashboard
 -   movies list
@@ -35,7 +34,7 @@ Design: ![Optech] https://optech-next.vercel.app/home-6
 -   add movie category item
 
 
-### 🧰 Tools
+## 🧰 Tools
 -   HTML/CSS
 -   JavaScript
 -   express.js
@@ -43,13 +42,13 @@ Design: ![Optech] https://optech-next.vercel.app/home-6
 -   bootstrap.css
 -   dotenv
 
-### 🏃 Environments
+## 🏃 Environments
 
 -   dev/development
 -   prod/production
 -   test/testing/staging
 
-### 💻 Prerequisites
+## 💻 Prerequisites
 
 Node.js - _download and install_
 
@@ -63,7 +62,7 @@ Git - _download and install_
 https://git-scm.com
 ```
 
-### 🧪 Running tests
+## 🧪 Running tests
 
 There is no tests for this project.
 
