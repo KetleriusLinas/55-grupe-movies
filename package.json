@@ -1,0 +1,19 @@
+{
+    "name": "55-grupe-movies",
+    "version": "1.0.0",
+    "description": "",
+    "type": "module",
+    "main": "index.js",
+    "scripts": {
+        "dev": "node ./src/index.js --env=development",
+        "prod": "node ./src/index.js --env=production",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "Rimantas (https://github.com/belauzas)",
+    "license": "MIT",
+    "dependencies": {
+        "dotenv": "^17.0.0",
+        "express": "^5.1.0"
+    }
+}
