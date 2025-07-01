@@ -1,15 +1,18 @@
 import { PageTemplate } from "../templates/PageTemplate.js";
+import { pageTitle } from "../ui/pageTitle.js";
+import { placeholder } from "../ui/placeholder.js";
 
 export class PageLogin extends PageTemplate {
     main() {
         return `
-            <main class ="container"> 
-                <div class="row">
-                    <div class="col-12">
-                        LOGIN PAGE CONTENT
-                    </div>
-                </div>
-            </main>
-        `;
+            <main> 
+                ${pageTitle('Login')}
+                ${placeholder('Form', [
+            'email/username',
+            'password',
+            'mygtukas',
+        ])}
+
+            </main>`;
     }
 }

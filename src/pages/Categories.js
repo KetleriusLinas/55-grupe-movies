@@ -1,21 +1,19 @@
-import { placeholder } from "../../ui/placeholder.js";
+import { placeholder } from "../ui/placeholder.js";
 import { PageTemplate } from "../templates/PageTemplate.js";
+import { pageTitle } from "../ui/pageTitle.js";
 
-export class PageCategories extends PageTemplate{
+export class PageCategories extends PageTemplate {
     main() {
         return `
             <main> 
-                ${placeholder ('Page title')}
-                ${placeholder ('Catergory list' [
-                    'pavadinimas',
-                    'trumpas aprasas',
-                    'filmu kiekis toje kategorijoje',
-                    'nuoroda i vidini puslapi',
-                    'pavadinimas',
-
-                ])}
-                ${placeholder ('Page title')}
-            </main>
-        `;
+                ${pageTitle('Catergory')}
+                ${placeholder('Catergory list', [
+            'pavadinimas',
+            'trumpas aprasas',
+            'filmu kiekis toje kategorijoje',
+            'nuoroda i vidini puslapi',
+            'pavadinimas',
+        ])}
+            </main>`;
     }
 }
