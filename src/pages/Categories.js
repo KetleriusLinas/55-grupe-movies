@@ -1,14 +1,20 @@
+import { placeholder } from "../../ui/placeholder.js";
 import { PageTemplate } from "../templates/PageTemplate.js";
 
 export class PageCategories extends PageTemplate{
     main() {
         return `
-            <main class ="container"> 
-                <div class="row">
-                    <div class="col-12">
-                        CATEGORIES PAGE CONTENT
-                    </div>
-                </div>
+            <main> 
+                ${placeholder ('Page title')}
+                ${placeholder ('Catergory list' [
+                    'pavadinimas',
+                    'trumpas aprasas',
+                    'filmu kiekis toje kategorijoje',
+                    'nuoroda i vidini puslapi',
+                    'pavadinimas',
+
+                ])}
+                ${placeholder ('Page title')}
             </main>
         `;
     }
