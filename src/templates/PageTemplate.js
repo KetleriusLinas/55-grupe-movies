@@ -23,6 +23,14 @@ export class PageTemplate {
     }
 
     header() {
+        let HTML = '';
+
+        for (const link of commonHeaderMenuData) {
+            HTML += `
+                <li>
+                    <a href="${link.href}" class="nav-link px-2">${link.text}</a>
+                </li>`;
+        }
         return `
             <div class="container">
                 <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
@@ -34,69 +42,32 @@ export class PageTemplate {
                             </svg>
                         </a>
                     </div>
-                    ${this.headerMenu(commonHeaderMenuData)}
+                    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">${HTML}</ul>
                     <div class="col-md-3 text-end">
-                        <button type="button" class="btn btn-outline-primary me-2">Login</button>
-                        <button type="button" class="btn btn-primary">Sign-up</button>
+                        <a href="/login" class="btn btn-outline-primary me-2">Login</a>
+                        <a href="/register" class="btn btn-primary">Register</a>
                     </div>
                 </header>
             </div>`;
     }
 
-    headerMenu(data) {
+    footer() {
         let HTML = '';
-
-        for (const link of data) {
+        for (const link of commonHeaderMenuData) {
             HTML += `
-                <li>
-                    <a href="${link.href}" class="nav-link px-2">${link.text}</a>
-                </li>`;
+            <li class="nav-item">
+                <a href="${link.href}" class="nav-link px-2 text-body-secondary">${link.text}</a>
+            </li>`
         }
 
-        return `<ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">${HTML}</ul>`;
-    }
-
-    footer() {
         return `
-            <footer class="container bg-dark">
-                <div class="row">
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <img class="logo" src="/img/logo.webp" alt="Logo">
-                        <p>Our goal is to demystify the process, address your concerns, and empower you with the knowledge to embark.</p>
-                        <div>
-                            <a href="#" target="_blank">SOC</a>
-                            <a href="#" target="_blank">SOC</a>
-                            <a href="#" target="_blank">SOC</a>
-                            <a href="#" target="_blank">SOC</a>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <p>Electricity service</p>
-                        <a href="#">Link</a>
-                        <a href="#">Link</a>
-                        <a href="#">Link</a>
-                        <a href="#">Link</a>
-                        <a href="#">Link</a>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-2">
-                        <p>Quick links</p>
-                        <a href="#">Link</a>
-                        <a href="#">Link</a>
-                        <a href="#">Link</a>
-                        <a href="#">Link</a>
-                        <a href="#">Link</a>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <p>Contact us</p>
-                        <a href="#">Link</a>
-                        <a href="#">Link</a>
-                        <a href="#">Link</a>
-                    </div>
-                </div>
-                <div class="row">
-                    <p class="col-12">&copy; Copyright 2024 - Current. All Right Reserved</p>
-                </div>
-            </footer>`;
+            <div class="container">
+                <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                    <p class="col-md-4 mb-0 text-body-secondary">&copy; 2025 Company, Inc</p> 
+                    <ul class="nav col-md-4 justify-content-end"> ${HTML}</ul>
+                </footer>
+            </div> 
+            `;
     }
 
     script() {
@@ -108,7 +79,15 @@ export class PageTemplate {
     }
 
     main() {
-        return '<main>CONTENT...</main>';
+        return `
+            <main class ="container"> 
+                <div class="row">
+                    <div class="col-12">
+                        TEMPLATE PAGE CONTENT
+                    </div>
+                </div>
+            </main>
+        `;
     }
 
     render() {
