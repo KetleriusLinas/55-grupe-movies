@@ -11,9 +11,7 @@ publicRouter.get('/', (req, res) => {
     return res.send(new PageHome().render())
 });
 
-publicRouter.get('/movies', (req, res) => {
-    return res.send(new PageMovies().render())
-});
+publicRouter.get('/movies', (req, res) => res.send(new PageMovies().render()));
 
 publicRouter.get('/categories', (req, res) => {
     return res.send(new PageCategories().render())
