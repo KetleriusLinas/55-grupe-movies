@@ -1,6 +1,7 @@
 import { connection } from "../../db.js";
 import { hash } from "../../lib/hash.js";
 import { IsValid } from "../../lib/IsValid.js";
+import { randomString } from "../../lib/randomString.js";
 
 export async function postRegister(req, res) {
     const [err, msg] = IsValid.fields(req.body, {
@@ -40,6 +41,7 @@ export async function postRegister(req, res) {
         });
     }
 
+    const salt = randomString(10);    
     const passwordHash = hash(password);
     
 
