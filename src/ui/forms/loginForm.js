@@ -4,7 +4,7 @@ export function loginForm() {
     <div class="row">
         <form class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4">
             <div class="mb-4">
-                <label for="username_or_email">Email or Username</label>
+                <label for="username_or_email">Username or Email</label>
                 <input id="username_or_email" type="text" class="form-control" required>
             </div>
             <div class="mb-4">

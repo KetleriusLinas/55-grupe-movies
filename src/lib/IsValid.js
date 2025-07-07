@@ -101,6 +101,16 @@ export class IsValid {
         return [false, ''];
     }
 
+    static nonEmptyString(text) {
+        if (typeof text !== 'string') {
+            return [true, 'Turi buti tekstas'];
+        }
+        if (text.length === 0) {
+            return [true, 'Tekstas turi buti ne tuscias'];
+        }
+        return [false, ''];
+    }
+
     static tos(text) {
         if (typeof text !== 'string') {
             return [true, 'Sutikimas su taisyklemis turi buti teksto tipo.'];

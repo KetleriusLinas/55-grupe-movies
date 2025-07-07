@@ -42,12 +42,11 @@ export async function postRegister(req, res) {
     }
 
     const salt = randomString(10);    
-    const passwordHash = hash(password);
+    const passwordHash = hash(password + salt);
     
-
     try {
-        const sql = `INSERT INTO users (username, email, password) VALUES (?, ?, ?);`;
-        const [response] = await connection.execute(sql, [username, email, passwordHash]);
+        const sql = `INSERT INTO users (username, email, salt, password_hash) VALUES (?, ?, ?, ?);`;
+        const [response] = await connection.execute(sql, [username, email, salt,  passwordHash]);
 
         if (response.affectedRows !== 1) {
             return res.status(500).json({
