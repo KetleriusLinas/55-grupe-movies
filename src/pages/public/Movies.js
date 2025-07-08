@@ -5,6 +5,9 @@ import { moviesListSection } from "../../ui/moviesList.js";
 import { pageTitle } from "../../ui/pageTitle.js";
 
 export class PageMovies extends PageTemplate {
+        constructor(req) {
+        super(req);
+    }
     main() {
         return `
             <main>

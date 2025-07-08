@@ -7,7 +7,6 @@ import { adminPageRouter } from './routes/adminPageRouter.js';
 import { cookieParser } from './middleware/cookieParser.js';
 import { userData } from './middleware/userData.js';
 
-
 const app = express();
 
 app.use(express.static('public'));
@@ -20,7 +19,6 @@ app.use(userData);
 app.use('/', publicPageRouter);
 app.use('/', publicApiRouter);
 app.use('/', adminPageRouter);
-
 
 app.get('*error', (req, res) => {
     return res.send(new PageError404().render())

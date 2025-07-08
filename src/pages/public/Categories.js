@@ -4,6 +4,9 @@ import { categoriesListSection } from "../../ui/categoriesList.js";
 import { pageTitle } from "../../ui/pageTitle.js";
 
 export class PageCategories extends PageTemplate {
+    constructor(req) {
+        super(req);
+    }
     main() {
         return `
             <main>
