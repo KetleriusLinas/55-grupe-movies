@@ -1,7 +1,8 @@
-// import express from 'express';
+import express from 'express';
+import { PageDashboard } from '../pages/admin/Dashbord.js'
 
-// export const adminPageRouter = express.Router();
+export const adminPageRouter = express.Router();
 
-// adminPageRouter.get((req, res) => {
-//     return res.send(new PageError404().render())
-// });
+adminPageRouter.get('/admin', (req, res) => {
+    return res.send(new PageDashboard(req).render())
+});
