@@ -1,9 +1,9 @@
 import express from 'express';
-import { PageHome } from '../pages/Home.js';
-import { PageMovies } from '../pages/Movies.js';
-import { PageCategories } from '../pages/Categories.js';
-import { PageLogin } from '../pages/Login.js';
-import { PageRegister } from '../pages/Register.js';
+import { PageHome } from '../pages/public/Home.js';
+import { PageMovies } from '../pages/public/Movies.js';
+import { PageCategories } from '../pages/public/Categories.js';
+import { PageLogin } from '../pages/public/Login.js';
+import { PageRegister } from '../pages/public/Register.js';
 
 export const publicRouter = express.Router();
 
