@@ -1,4 +1,5 @@
 import { connection } from "../../db.js";
+import { COOKIE_MAX_AGE } from "../../env.js";
 import { hash } from "../../lib/hash.js";
 import { IsValid } from "../../lib/IsValid.js";
 import { randomString } from "../../lib/randomString.js";
@@ -90,5 +91,7 @@ export async function postLogin(req, res) {
         .json({
             status: 'success',
             msg: 'Tu buvai sekmingai prijungtas prie sistemos',
+            action: 'redirect',
+            href: '/admin',
         });
 }

@@ -48,7 +48,6 @@ export class PageTemplate {
                     </div>`;
     }
     userMenu() {
-        console.log(this);
 
         if (this.req.user.isLoggedIn) {
             return `

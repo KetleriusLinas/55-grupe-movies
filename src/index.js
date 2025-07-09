@@ -20,8 +20,10 @@ app.use('/', publicPageRouter);
 app.use('/', publicApiRouter);
 app.use('/', adminPageRouter);
 
+
+
 app.get('*error', (req, res) => {
-    return res.send(new PageError404().render())
+    return res.send(new PageError404(req).render())
 });
 
 app.listen(PORT, () => {

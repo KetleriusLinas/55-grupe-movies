@@ -17,6 +17,7 @@ dotenv.config({
     quiet: true, // reklamas visas 'nutildo'
 });
 
+// export const NODE_ENV = process.env.NODE_ENV ?? ;
 export const PORT = +process.env.PORT ?? 5517;
 export const TITLE = process.env.TITLE ?? 'Project title';
 export const DB_HOST = process.env.DB_HOST ?? 'localhost';
