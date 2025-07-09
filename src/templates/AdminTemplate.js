@@ -1,4 +1,5 @@
 import { commonHeaderMenuData } from "../data/headerData.js";
+import { sidebarMenuData } from "../data/sidebarData.js";
 
 export class AdminTemplate {
     constructor(req) {
@@ -79,74 +80,41 @@ export class AdminTemplate {
     }
 
     sidebar() {
+
+        let HTML = '';
+
+        for (const item of sidebarMenuData) {
+            if (typeof item === 'string') {
+                HTML += `
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
+                        <span>${item}</span>
+                    </h6>`;
+            } else {
+                let liHTML = '';
+
+                for (const li of item) {
+                    liHTML += `
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center gap-2 
+                            ${this.req.url === li.href ? 'active' : ''}" 
+                            aria-current="page"  href="${li.href}">
+                                ${li.text}
+                            </a>
+                        </li>`;
+                }
+
+                HTML += `
+                        <ul class="nav nav-pills flex-column">
+                            ${liHTML}
+                        </ul>`;
+            }
+        }
+
         return `
             <div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
                 <div class="offcanvas-md offcanvas-end bg-body-tertiary" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
                     <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
-                        <ul class="nav nav-pills flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2 
-                                ${this.req.url === '/admin' ? 'active' : ''}" 
-                                aria-current="page"  href="/admin">
-                                    Dashboard
-                                </a>
-                            </li>
-                        </ul>
-                        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
-                            <span>Categories</span>
-                        </h6>
-                        <ul class="nav nav-pills flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2 
-                                ${this.req.url === '/admin/categories/new' ? 'active' : ''}" aria-current="page" href="/admin/categories/new">
-                                    New category
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2 
-                                ${this.req.url === '/admin/categories' ? 'active' : ''}"
-                                 aria-current="page" href="/admin/categories">
-                                    All categories
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2 
-                                ${this.req.url === '/admin/categories/published' ? 'active' : ''}" aria-current="page" href="/admin/categories/published">
-                                    Published categories
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2 
-                                ${this.req.url === '/admin/categories/draft' ? 'active' : ''}" aria-current="page" href="/admin/categories/draft">
-                                    Draft categories
-                                </a>
-                            </li>
-                        </ul>
-                        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
-                            <span>Movies</span>
-                        </h6>
-                        <ul class="nav nav-pills flex-column mb-auto">
-                            <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2" href="#">
-                                    New movie
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2" href="#">
-                                    All movies
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2" href="#">
-                                    Published movies
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2" href="#">
-                                    Draft movies
-                                </a>
-                            </li>
-                        </ul>
+                        ${HTML}
                     </div>
                 </div>
             </div>`;
