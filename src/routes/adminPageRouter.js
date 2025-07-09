@@ -12,7 +12,7 @@ import { PageAdminMoviesNew } from '../pages/admin/movies/MoviesNew.js';
 
 export const adminPageRouter = express.Router();
 
-adminPageRouter.get('', (req, res) => {
+adminPageRouter.get('/', (req, res) => {
     return res.send(new PageDashboard(req).render())
 });
 
