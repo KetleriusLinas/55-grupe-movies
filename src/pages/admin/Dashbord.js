@@ -3,23 +3,8 @@ import { AdminTemplate } from "../../templates/AdminTemplate.js";
 
 export class PageDashboard extends AdminTemplate {
     main() {
-
-        if (!this.req.user.isLoggedIn) {
-            return `
-                <main> 
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12">  
-                                <h1 class="h1">403 - Reikia prisijungti</h1>
-                            </div>
-                        </div>
-                    </div>
-                </main>`;
-        }
-
         const cookie = this.req.user.login_token_created_at.getTime();
         const secondsLeft = Math.floor(COOKIE_MAX_AGE - (Date.now() - cookie) / 1000);
-
         const seconds = secondsLeft % 60;
         const minutes = (secondsLeft - seconds) / 60;
 
@@ -38,3 +23,16 @@ export class PageDashboard extends AdminTemplate {
             </main>`;
     }
 }
+
+        // if (!this.req.user.isLoggedIn) {
+        //     return `
+        //         <main> 
+        //             <div class="container">
+        //                 <div class="row">
+        //                     <div class="col-lg-12">  
+        //                         <h1 class="h1">403 - Reikia prisijungti</h1>
+        //                     </div>
+        //                 </div>
+        //             </div>
+        //         </main>`;
+        // }

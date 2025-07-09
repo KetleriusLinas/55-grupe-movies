@@ -6,6 +6,7 @@ import { publicApiRouter } from './routes/publicApiRouter.js';
 import { adminPageRouter } from './routes/adminPageRouter.js';
 import { cookieParser } from './middleware/cookieParser.js';
 import { userData } from './middleware/userData.js';
+import { isAdmin } from './middleware/isAdmin.js';
 
 const app = express();
 
@@ -18,7 +19,7 @@ app.use(userData);
 
 app.use('/', publicPageRouter);
 app.use('/', publicApiRouter);
-app.use('/', adminPageRouter);
+app.use('/admin', isAdmin, adminPageRouter);
 
 
 

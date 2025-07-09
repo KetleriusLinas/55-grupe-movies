@@ -12,28 +12,28 @@ import { PageAdminMoviesNew } from '../pages/admin/movies/MoviesNew.js';
 
 export const adminPageRouter = express.Router();
 
-adminPageRouter.get('/admin', (req, res) => {
+adminPageRouter.get('', (req, res) => {
     return res.send(new PageDashboard(req).render())
 });
 
 
-adminPageRouter.get('/admin/categories', (req, res) => {
+adminPageRouter.get('/categories', (req, res) => {
     return res.send(new PageAdminCategories(req).render())
 });
 
-adminPageRouter.get('/admin/categories/published', (req, res) => {
+adminPageRouter.get('/categories/published', (req, res) => {
     return res.send(new PageAdminCategoriesPublished(req).render())
 });
 
-adminPageRouter.get('/admin/categories/draft', (req, res) => {
+adminPageRouter.get('/categories/draft', (req, res) => {
     return res.send(new PageAdminCategoriesDraft(req).render())
 });
-adminPageRouter.get('/admin/categories/new', (req, res) => {
+adminPageRouter.get('/categories/new', (req, res) => {
     return res.send(new PageAdminCategoriesNew(req).render())
 });
 
 
-adminPageRouter.get('/admin/Movies', (req, res) => res.send(new PageAdminMovies(req).render()));
-adminPageRouter.get('/admin/Movies/published', (req, res) => res.send(new PageAdminMoviesPublished(req).render()));
-adminPageRouter.get('/admin/Movies/draft', (req, res) => res.send(new PageAdminMoviesDraft(req).render()));
-adminPageRouter.get('/admin/Movies/new', (req, res) => res.send(new PageAdminMoviesNew(req).render()));
+adminPageRouter.get('/Movies', (req, res) => res.send(new PageAdminMovies(req).render()));
+adminPageRouter.get('/Movies/published', (req, res) => res.send(new PageAdminMoviesPublished(req).render()));
+adminPageRouter.get('/Movies/draft', (req, res) => res.send(new PageAdminMoviesDraft(req).render()));
+adminPageRouter.get('/Movies/new', (req, res) => res.send(new PageAdminMoviesNew(req).render()));
