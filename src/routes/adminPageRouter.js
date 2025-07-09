@@ -5,6 +5,11 @@ import { PageAdminCategoriesPublished } from '../pages/admin/categories/Categori
 import { PageAdminCategoriesDraft } from '../pages/admin/categories/CategoriesDraft.js';
 import { PageAdminCategoriesNew } from '../pages/admin/categories/CategoriesNew.js';
 
+import { PageAdminMovies } from '../pages/admin/movies/Movies.js';
+import { PageAdminMoviesPublished } from '../pages/admin/movies/MoviesPublished.js';
+import { PageAdminMoviesDraft } from '../pages/admin/movies/MoviesDraft.js';
+import { PageAdminMoviesNew } from '../pages/admin/movies/MoviesNew.js';
+
 export const adminPageRouter = express.Router();
 
 adminPageRouter.get('/admin', (req, res) => {
@@ -26,3 +31,9 @@ adminPageRouter.get('/admin/categories/draft', (req, res) => {
 adminPageRouter.get('/admin/categories/new', (req, res) => {
     return res.send(new PageAdminCategoriesNew(req).render())
 });
+
+
+adminPageRouter.get('/admin/Movies', (req, res) => res.send(new PageAdminMovies(req).render()));
+adminPageRouter.get('/admin/Movies/published', (req, res) => res.send(new PageAdminMoviesPublished(req).render()));
+adminPageRouter.get('/admin/Movies/draft', (req, res) => res.send(new PageAdminMoviesDraft(req).render()));
+adminPageRouter.get('/admin/Movies/new', (req, res) => res.send(new PageAdminMoviesNew(req).render()));

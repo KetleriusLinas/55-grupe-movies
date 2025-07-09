@@ -85,7 +85,9 @@ export class AdminTemplate {
                     <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
                         <ul class="nav nav-pills flex-column">
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="/admin">
+                                <a class="nav-link d-flex align-items-center gap-2 
+                                ${this.req.url === '/admin' ? 'active' : ''}" 
+                                aria-current="page"  href="/admin">
                                     Dashboard
                                 </a>
                             </li>
@@ -95,22 +97,27 @@ export class AdminTemplate {
                         </h6>
                         <ul class="nav nav-pills flex-column">
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="/admin/categories/new">
+                                <a class="nav-link d-flex align-items-center gap-2 
+                                ${this.req.url === '/admin/categories/new' ? 'active' : ''}" aria-current="page" href="/admin/categories/new">
                                     New category
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="/admin/categories">
+                                <a class="nav-link d-flex align-items-center gap-2 
+                                ${this.req.url === '/admin/categories' ? 'active' : ''}"
+                                 aria-current="page" href="/admin/categories">
                                     All categories
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="/admin/categories/published">
+                                <a class="nav-link d-flex align-items-center gap-2 
+                                ${this.req.url === '/admin/categories/published' ? 'active' : ''}" aria-current="page" href="/admin/categories/published">
                                     Published categories
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="/admin/categories/draft">
+                                <a class="nav-link d-flex align-items-center gap-2 
+                                ${this.req.url === '/admin/categories/draft' ? 'active' : ''}" aria-current="page" href="/admin/categories/draft">
                                     Draft categories
                                 </a>
                             </li>
