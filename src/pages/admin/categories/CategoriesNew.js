@@ -1,6 +1,10 @@
 import { AdminTemplate } from "../../../templates/AdminTemplate.js";
 
 export class PageAdminCategoriesNew extends AdminTemplate {
+    constructor(req) {
+        super(req);
+        this.pageJS = 'new-category';
+    }
     main() {
         return `
             <main> 
@@ -15,16 +19,16 @@ export class PageAdminCategoriesNew extends AdminTemplate {
                     <div class="row"> 
                         <form class="col-12 col-md-9 col-lg-6">
                                 <div class="mb-3">
-                                    <label for="Title" class="form-label">Title</label>
-                                    <input type="text" class="form-control" id="Title" required>
+                                    <label for="title" class="form-label">Title</label>
+                                    <input type="text" class="form-control" id="title" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="url" class="form-label">Url slug</label>
                                     <input type="text" class="form-control" id="url" required>
                                 </div>                               
                                  <div class="mb-3">
-                                    <label for="Description" class="form-label">Description</label>
-                                    <textarea class="form-control" id="Description"></textarea>
+                                    <label for="description" class="form-label">Description</label>
+                                    <textarea class="form-control" id="description"></textarea>
                                 </div>
                                 <div class="mb-3">
                                         <label class="form-label">Status</label>
