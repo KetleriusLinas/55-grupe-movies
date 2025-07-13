@@ -19,6 +19,7 @@ export class PageTemplate {
                 <meta name="apple-mobile-web-app-title" content="Coming soon" />
                 <link rel="manifest" href="/favicon/site.webmanifest" />
                 <link rel="stylesheet" href="/css/bootstrap.min.css">
+                <link rel="stylesheet" href="/css/custom.css">
             </head>`;
     }
 

@@ -12,7 +12,7 @@ export class PageDashboard extends AdminTemplate {
             <main> 
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-12">  
+                        <div class="col-12">  
                             <h1 class="display-1">Welcome to dashboard</h1>
                             <p class="display-6">User:${this.req.user.username}</p>
                             <p class="display-6">Email:${this.req.user.email}</p>

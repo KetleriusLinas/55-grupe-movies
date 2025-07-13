@@ -10,7 +10,7 @@ export function tableCategories(data) {
                 <td>${category.url}</td>
                 <td>${category.description}</td>
                 <td>${category.moviesCount}</td>
-                <td>${category.isPublished ? 'Published' : 'Draft'}</td>
+                <td>${category.isPublished ? `<span class="badge text-bg-success">Published</span>` : `<span class="badge text-bg-warning">Draft</span>`}</td>
                 <td>
                     <a class="btn btn-primary btn-sm" href="/admin">Edit</a>
                     <button class="btn btn-danger btn-sm">Delete</button>
