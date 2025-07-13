@@ -4,5 +4,5 @@ import { postLogin } from "../api/public/postLogin.js";
 
 export const publicApiRouter = express.Router();
 
-publicApiRouter.post ('/api/register', postRegister);
-publicApiRouter.post ('/api/login', postLogin);
+publicApiRouter.post('/register', postRegister);
+publicApiRouter.post('/login', postLogin);

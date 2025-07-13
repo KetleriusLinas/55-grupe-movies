@@ -1,18 +1,34 @@
 export class IsValid {
-    static fields(data, schema) {
+    static fields(data, requiredSchema, optionalSchema = {}) {
         const errors = {};
+        const possibleKeys = Object.keys(requiredSchema).concat(Object.keys(optionalSchema));
 
-        const requiredKeysCount = Object.keys(schema).length;
-        const dataKeysCount = Object.keys(data).length;
-
-        if (dataKeysCount !== requiredKeysCount) {
-            return [true, 'Atejusiuose duomenyse duomenu kiekis nesutampa su reikalaujamu duomenu apimtimi'];
+        for (const key in data) {
+            if (!possibleKeys.includes(key)) {
+                return [true, 'Ka tu cia dirbi?... Pateikei rakta kuris nera nei tarp privalomu, nei tarp papildomu galimu saraso... 👀👀👀'];
+            }
         }
 
-        for (const key in schema) {
-            const funcName = schema[key];
+        for (const key in requiredSchema) {
+            const funcName = requiredSchema[key];
             const func = IsValid[funcName];
             const value = data[key];
+            const [err, msg] = func(value);
+
+            if (err) {
+                errors[key] = msg;
+            }
+        }
+
+        for (const key in optionalSchema) {
+            const funcName = optionalSchema[key];
+            const func = IsValid[funcName];
+            const value = data[key];
+
+            if (!value) {
+                continue;
+            }
+
             const [err, msg] = func(value);
 
             if (err) {
