@@ -34,3 +34,4 @@ export function tableCategories(data) {
             <tbody>${HTML}</tbody>
         </table>`;
 }
+
