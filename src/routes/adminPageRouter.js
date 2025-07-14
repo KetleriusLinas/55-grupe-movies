@@ -12,28 +12,33 @@ import { PageAdminMoviesNew } from '../pages/admin/movies/MoviesNew.js';
 
 export const adminPageRouter = express.Router();
 
-adminPageRouter.get('/', (req, res) => {
-    return res.send(new PageDashboard(req).render())
+adminPageRouter.get('/', async (req, res) => {
+    return res.send(await new PageDashboard(req).render())
 });
 
 
-adminPageRouter.get('/categories',async (req, res) => {
+adminPageRouter.get('/categories', async (req, res) => {
     return res.send(await new PageAdminCategories(req).render())
 });
 
-adminPageRouter.get('/categories/published', (req, res) => {
-    return res.send(new PageAdminCategoriesPublished(req).render())
+adminPageRouter.get('/categories/published', async (req, res) => {
+    return res.send(await new PageAdminCategoriesPublished(req).render())
 });
 
-adminPageRouter.get('/categories/draft', (req, res) => {
-    return res.send(new PageAdminCategoriesDraft(req).render())
+adminPageRouter.get('/categories/draft', async (req, res) => {
+    return res.send(await new PageAdminCategoriesDraft(req).render())
 });
-adminPageRouter.get('/categories/new', (req, res) => {
-    return res.send(new PageAdminCategoriesNew(req).render())
+adminPageRouter.get('/categories/new', async (req, res) => {
+    return res.send(await new PageAdminCategoriesNew(req).render())
+});
+adminPageRouter.get('/categories/:urlSlug', async (req, res) => {
+    return res.send(await new PageAdminCategoriesNew(req).render())
+});
+adminPageRouter.get('/categories/:urlSlug/edit', async (req, res) => {
+    return res.send(await new PageAdminCategoriesNew(req).render())
 });
 
-
-adminPageRouter.get('/Movies', (req, res) => res.send(new PageAdminMovies(req).render()));
-adminPageRouter.get('/Movies/published', (req, res) => res.send(new PageAdminMoviesPublished(req).render()));
-adminPageRouter.get('/Movies/draft', (req, res) => res.send(new PageAdminMoviesDraft(req).render()));
-adminPageRouter.get('/Movies/new', (req, res) => res.send(new PageAdminMoviesNew(req).render()));
+adminPageRouter.get('/Movies', async (req, res) => res.send(await new PageAdminMovies(req).render()));
+adminPageRouter.get('/Movies/published', async (req, res) => res.send(await new PageAdminMoviesPublished(req).render()));
+adminPageRouter.get('/Movies/draft', async (req, res) => res.send(await new PageAdminMoviesDraft(req).render()));
+adminPageRouter.get('/Movies/new', async (req, res) => res.send(await new PageAdminMoviesNew(req).render()));
