@@ -10,11 +10,11 @@ export function tableCategories(data) {
                 <td>${category.url_slug}</td>
                 <td>${category.description}</td>
                 <td>${category.moviesCount}</td>
-                <td>${category.name === 'published'
+                <td>${category.statusName === 'published'
                 ? `<span class="badge text-bg-success">Published</span>`
                 : `<span class="badge text-bg-warning">Draft</span>`}</td>
                 <td>
-                    <a class="btn btn-primary btn-sm" href="/admin/categories/${category.url_slug}">Edit</a>
+                    <a class="btn btn-primary btn-sm" href="/admin/categories/${category.url_slug}/edit">Edit</a>
                     <button class="btn btn-danger btn-sm">Delete</button>
                 </td>
             </tr>`;

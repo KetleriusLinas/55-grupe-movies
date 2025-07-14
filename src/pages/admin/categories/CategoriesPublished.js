@@ -1,32 +1,10 @@
+import { getPublishedCategories } from "../../../db/getPublishedCategories.js";
 import { AdminTemplate } from "../../../templates/AdminTemplate.js";
 import { tableCategories } from "../../../ui/tables/tableCategories.js";
 
 export class PageAdminCategoriesPublished extends AdminTemplate {
-    main() {
-        const data = [
-            {
-                id: 1,
-                title: 'Action',
-                url: 'action',
-                description: 'Lorem ipsum...',
-                isPublished: true,
-                moviesCount: 0,
-            }, {
-                id: 2,
-                title: 'Crime',
-                url: 'crime',
-                description: 'Lorem ipsum...',
-                isPublished: false,
-                moviesCount: 0,
-            }, {
-                id: 3,
-                title: 'Sci-Fi',
-                url: 'sci-fi',
-                description: 'Lorem ipsum...',
-                isPublished: true,
-                moviesCount: 0,
-            }
-        ];
+    async main() {
+        const data = await getPublishedCategories();
 
         return `
             <main> 
