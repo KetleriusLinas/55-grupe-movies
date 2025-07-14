@@ -1,32 +1,35 @@
 import { AdminTemplate } from "../../../templates/AdminTemplate.js";
 import { tableCategories } from "../../../ui/tables/tableCategories.js";
+import {getAllCategories} from "../../../db/getAllCategories.js"
 
 export class PageAdminCategories extends AdminTemplate {
-    main() {
-        const data = [
-            {
-                id: 1,
-                title: 'Action',
-                url: 'action',
-                description: 'Lorem ipsum...',
-                isPublished: true,
-                moviesCount: 0,
-            }, {
-                id: 2,
-                title: 'Crime',
-                url: 'crime',
-                description: 'Lorem ipsum...',
-                isPublished: false,
-                moviesCount: 0,
-            }, {
-                id: 3,
-                title: 'Sci-Fi',
-                url: 'sci-fi',
-                description: 'Lorem ipsum...',
-                isPublished: true,
-                moviesCount: 0,
-            }
-        ];
+    async main() {
+        // const data = [
+        //     {
+        //         id: 1,
+        //         title: 'Action',
+        //         url: 'action',
+        //         description: 'Lorem ipsum...',
+        //         isPublished: true,
+        //         moviesCount: 0,
+        //     }, {
+        //         id: 2,
+        //         title: 'Crime',
+        //         url: 'crime',
+        //         description: 'Lorem ipsum...',
+        //         isPublished: false,
+        //         moviesCount: 0,
+        //     }, {
+        //         id: 3,
+        //         title: 'Sci-Fi',
+        //         url: 'sci-fi',
+        //         description: 'Lorem ipsum...',
+        //         isPublished: true,
+        //         moviesCount: 0,
+        //     }
+        // ];
+
+        const data = await getAllCategories();
 
         return `
             <main>

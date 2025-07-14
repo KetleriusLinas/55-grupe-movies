@@ -17,8 +17,8 @@ adminPageRouter.get('/', (req, res) => {
 });
 
 
-adminPageRouter.get('/categories', (req, res) => {
-    return res.send(new PageAdminCategories(req).render())
+adminPageRouter.get('/categories',async (req, res) => {
+    return res.send(await new PageAdminCategories(req).render())
 });
 
 adminPageRouter.get('/categories/published', (req, res) => {

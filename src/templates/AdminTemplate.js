@@ -121,7 +121,7 @@ export class AdminTemplate {
                 </div>
             </div>`;
     }
-    main() {
+async  main() {
         return `
             <h2>Section title</h2>
             <div class="table-responsive small">
@@ -253,7 +253,8 @@ export class AdminTemplate {
             </div>`;
     }
 
-    render() {
+    async render() {
+        const content = await this.main();
         return `
             <!DOCTYPE html>
             <html lang="en">
@@ -264,7 +265,7 @@ export class AdminTemplate {
                     <div class="row">
                         ${this.sidebar()}
                         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                            ${this.main()}
+                            ${content}
                         </main>
                     </div>
                 </div>
