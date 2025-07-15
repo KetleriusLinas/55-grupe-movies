@@ -1,4 +1,4 @@
-import { getCategoryByUrlSlug } from "../../../db/getCategoryByUrlSlug.js";
+import { getCategoryByUrlSlug } from "../../../db/admin/getCategoryByUrlSlug.js";
 import { AdminTemplate } from "../../../templates/AdminTemplate.js";
 
 export class PageAdminCategoriesView extends AdminTemplate {

@@ -1,6 +1,6 @@
-import { connection } from "../db.js";
+import { connection } from "../../db.js";
 
-export async function getDraftCategories() {
+export async function getPublishedCategories() {
     try {
         const sql = `
             SELECT
@@ -11,7 +11,7 @@ export async function getDraftCategories() {
             INNER JOIN category_status
                 ON categories.status_id = category_status.id
             WHERE category_status.name = ?;`;
-        const [result] = await connection.execute(sql, ['draft']);
+        const [result] = await connection.execute(sql, ['published']);
         return result;
     } catch (err) {
         return [];

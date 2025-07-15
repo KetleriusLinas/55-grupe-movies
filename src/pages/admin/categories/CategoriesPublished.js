@@ -1,4 +1,4 @@
-import { getPublishedCategories } from "../../../db/getPublishedCategories.js";
+import { getPublishedCategories } from "../../../db/admin/getPublishedCategories.js";
 import { AdminTemplate } from "../../../templates/AdminTemplate.js";
 import { tableCategories } from "../../../ui/tables/tableCategories.js";
 

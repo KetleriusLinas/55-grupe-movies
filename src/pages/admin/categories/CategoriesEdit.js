@@ -1,4 +1,4 @@
-import { getCategoryByUrlSlug } from "../../../db/getCategoryByUrlSlug.js";
+import { getCategoryByUrlSlug } from "../../../db/admin/getCategoryByUrlSlug.js";
 import { AdminTemplate } from "../../../templates/AdminTemplate.js";
 
 export class PageAdminCategoriesEdit extends AdminTemplate {
@@ -38,11 +38,11 @@ export class PageAdminCategoriesEdit extends AdminTemplate {
                             <div class="mb-3">
                                 <label class="form-label">Status</label>
                                 <div class="form-check">
-                                    <input ${category.statusName  === 'published' ? 'checked' : ''} type="radio" name="radios" class="form-check-input" id="status_published" required>
+                                    <input ${category.statusName === 'published' ? 'checked' : ''} type="radio" name="radios" class="form-check-input" id="status_published" required>
                                     <label class="form-check-label" for="status_published">Published</label>
                                 </div>
                                 <div class="form-check">
-                                    <input ${category.statusName  === 'draft' ? 'checked' : ''} type="radio" name="radios" class="form-check-input" id="status_draft" required>
+                                    <input ${category.statusName === 'draft' ? 'checked' : ''} type="radio" name="radios" class="form-check-input" id="status_draft" required>
                                     <label class="form-check-label" for="status_draft">Draft</label>
                                 </div>
                             </div>

@@ -8,10 +8,12 @@ export class PageCategories extends PageTemplate {
         super(req);
     }
     main() {
+        const data = [];
+
         return `
             <main>
                 ${pageTitle('Categories')}
-                ${categoriesListSection(categoriesData)}
+                ${categoriesListSection(data)}
             </main>`;
     }
 }

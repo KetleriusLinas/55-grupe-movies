@@ -1,6 +1,6 @@
-import { connection } from "../db.js";
+import { connection } from "../../db.js";
 
-export async function getCategoryByUrlSlug(urlSlug) {
+export async function getAllCategories() {
     try {
         const sql = `
             SELECT
@@ -9,9 +9,8 @@ export async function getCategoryByUrlSlug(urlSlug) {
                 category_status.name AS statusName
             FROM categories
             INNER JOIN category_status
-                ON categories.status_id = category_status.id
-            WHERE categories.url_slug = ?;`;
-        const [result] = await connection.execute(sql, [urlSlug]);
+                ON categories.status_id = category_status.id;`;
+        const [result] = await connection.execute(sql);
         return result;
     } catch (err) {
         return [];

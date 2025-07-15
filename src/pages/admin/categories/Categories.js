@@ -1,9 +1,9 @@
 import { AdminTemplate } from "../../../templates/AdminTemplate.js";
 import { tableCategories } from "../../../ui/tables/tableCategories.js";
-import { getAllCategories } from "../../../db/getAllCategories.js"
+import { getAllCategories } from "../../../db/admin/getAllCategories.js"
 
 export class PageAdminCategories extends AdminTemplate {
-    constructor(req){
+    constructor(req) {
         super(req);
         this.pageJS = 'category-list';
     }
