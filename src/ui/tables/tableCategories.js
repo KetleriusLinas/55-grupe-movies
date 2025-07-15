@@ -13,14 +13,15 @@ export function tableCategories(data) {
                 <td>${category.statusName === 'published'
                 ? `<span class="badge text-bg-success">Published</span>`
                 : `<span class="badge text-bg-warning">Draft</span>`}</td>
-                <td>
+                <td class="d-flex gap-3">
                     <a class="btn btn-primary btn-sm" href="/admin/categories/${category.url_slug}/edit">Edit</a>
-                    <button class="btn btn-danger btn-sm">Delete</button>
+                    <button data-url="${category.url_slug}" class="btn btn-danger btn-sm">Delete</button>
                 </td>
             </tr>`;
     }
 
     return `
+    <div class="table-responsive">
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -34,6 +35,7 @@ export function tableCategories(data) {
                 </tr>
             </thead>
             <tbody>${HTML}</tbody>
-        </table>`;
+        </table>
+    </div>`;
 }
 

@@ -3,6 +3,11 @@ import { tableCategories } from "../../../ui/tables/tableCategories.js";
 import { getAllCategories } from "../../../db/getAllCategories.js"
 
 export class PageAdminCategories extends AdminTemplate {
+    constructor(req){
+        super(req);
+        this.pageJS = 'category-list';
+    }
+
     async main() {
 
         const data = await getAllCategories();

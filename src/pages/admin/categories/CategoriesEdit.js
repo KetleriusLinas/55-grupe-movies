@@ -10,9 +10,6 @@ export class PageAdminCategoriesEdit extends AdminTemplate {
         const data = await getCategoryByUrlSlug(this.req.params.urlSlug);
         const category = data[0];
 
-        console.log(category);
-        
-
         return `
             <main>
                 <div class="container">
