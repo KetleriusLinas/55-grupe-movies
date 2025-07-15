@@ -10,6 +10,7 @@ import { PageAdminMoviesPublished } from '../pages/admin/movies/MoviesPublished.
 import { PageAdminMoviesDraft } from '../pages/admin/movies/MoviesDraft.js';
 import { PageAdminMoviesNew } from '../pages/admin/movies/MoviesNew.js';
 import { PageAdminCategoriesEdit } from '../pages/admin/categories/CategoriesEdit.js';
+import { PageAdminCategoriesView } from '../pages/admin/categories/CategoriesView.js';
 
 export const adminPageRouter = express.Router();
 
@@ -33,7 +34,7 @@ adminPageRouter.get('/categories/new', async (req, res) => {
     return res.send(await new PageAdminCategoriesNew(req).render())
 });
 adminPageRouter.get('/categories/:urlSlug', async (req, res) => {
-    return res.send(await new PageAdminCategoriesNew(req).render())
+    return res.send(await new PageAdminCategoriesView(req).render())
 });
 adminPageRouter.get('/categories/:urlSlug/edit', async (req, res) => {
     return res.send(await new PageAdminCategoriesEdit(req).render())
