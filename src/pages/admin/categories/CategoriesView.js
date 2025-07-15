@@ -1,7 +1,8 @@
-import { getCategoryByUrlSlug } from "../../../db/admin/getCategoryByUrlSlug.js";
+import { getCategoryByUrlSlug } from "../../../db/getCategoryByUrlSlug.js";
 import { AdminTemplate } from "../../../templates/AdminTemplate.js";
 
 export class PageAdminCategoriesView extends AdminTemplate {
+
     async main() {
         const data = await getCategoryByUrlSlug(this.req.params.urlSlug);
         const category = data[0];
