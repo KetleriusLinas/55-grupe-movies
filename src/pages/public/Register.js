@@ -8,7 +8,7 @@ export class PageRegister extends PageTemplate {
         this.pageJS = 'register';
     }
 
-    main() {
+   async main() {
         return `
             <main> 
                     ${pageTitle('Register')}

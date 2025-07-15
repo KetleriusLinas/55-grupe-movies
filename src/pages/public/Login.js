@@ -8,7 +8,7 @@ export class PageLogin extends PageTemplate {
         this.pageJS = 'login';
     }
 
-    main() {
+  async  main() {
         return `
             <main> 
                 ${pageTitle('Login')}

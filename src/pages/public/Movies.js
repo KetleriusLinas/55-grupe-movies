@@ -8,7 +8,7 @@ export class PageMovies extends PageTemplate {
         constructor(req) {
         super(req);
     }
-    main() {
+   async main() {
         return `
             <main>
                 ${pageTitle('Movies')}
