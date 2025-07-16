@@ -1,7 +1,7 @@
 export const moviesData = [
     {
         title: 'Matrix',
-        url: '/matrix',
+        url_slug: 'matrix',
         description: 'description',
         durationInMinutes: '100',
         category: 'action',
@@ -11,7 +11,7 @@ export const moviesData = [
     },
     {
         title: 'Matrix',
-        url: '/matrix',
+        url_slug: 'matrix',
         description: 'description',
         durationInMinutes: '100',
         category: 'action',
@@ -21,7 +21,7 @@ export const moviesData = [
     },
     {
         title: 'Matrix',
-        url: '/matrix',
+        url_slug: 'matrix',
         description: 'description',
         durationInMinutes: '100',
         category: 'action',
@@ -31,7 +31,7 @@ export const moviesData = [
     },
     {
         title: 'Matrix',
-        url: '/matrix',
+        url_slug: 'matrix',
         description: 'description',
         durationInMinutes: '100',
         category: 'action',
