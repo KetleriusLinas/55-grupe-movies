@@ -1,5 +1,5 @@
-import { connection } from "../../db.js";
-import { IsValid } from "../../lib/IsValid.js";
+import { connection } from "../../../db.js";
+import { IsValid } from "../../../lib/IsValid.js";
 
 export async function postCategories(req, res) {
     const [err, msg] = IsValid.fields(req.body, {

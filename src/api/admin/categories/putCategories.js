@@ -1,5 +1,5 @@
-import { connection } from "../../db.js";
-import { IsValid } from "../../lib/IsValid.js";
+import { connection } from "../../../db.js";
+import { IsValid } from "../../../lib/IsValid.js";
 
 export async function putCategories(req, res) {
     const [errParams, msgParams] = IsValid.fields(req.params, {
