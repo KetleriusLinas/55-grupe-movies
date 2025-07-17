@@ -13,8 +13,8 @@ export function tableMovies(data) {
                 <td>${movie.description
                 ? '<span class="badge text-bg-success">Provided</span>'
                 : '<span class="badge text-bg-warning">Empty</span>'}</td>
-                <td>${formatDuration(movie.durationInMinutes)}</td>
-                <td>${movie.category}</td>
+                <td>${formatDuration(movie.duration_in_minutes)}</td>
+                <td>${movie.categoryName ? movie.categoryName : '<span class="badge text-bg-warning">Not selected</span>'}</td>
                 <td>${movie.statusName === 'published'
                 ? '<span class="badge text-bg-success">Published</span>'
                 : '<span class="badge text-bg-warning">Draft</span>'}</td>

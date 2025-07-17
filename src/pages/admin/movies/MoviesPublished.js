@@ -1,10 +1,10 @@
-import { moviesData } from "../../../data/moviesData.js";
+import { getPublishedMovies } from "../../../db/admin/getPublishedMovies.js";
 import { AdminTemplate } from "../../../templates/AdminTemplate.js";
 import { tableMovies } from "../../../ui/tables/tableMovies.js";
 
 export class PageAdminMoviesPublished extends AdminTemplate {
     async main() {
-        const data = moviesData;
+        const data = await getPublishedMovies();
 
         return `
             <main> 

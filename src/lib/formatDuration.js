@@ -1,4 +1,4 @@
-export function formatDuration(minutes = 100) {
+export function formatDuration(minutes = 0) {
     const min = minutes % 60;
     const h = (minutes - min) / 60;
 

@@ -1,6 +1,6 @@
 import { connection } from "../../db.js";
 
-export async function getAllMovies() {
+export async function getPublishedMovies() {
     try {
         const sql = `
             SELECT
@@ -11,11 +11,11 @@ export async function getAllMovies() {
             INNER JOIN general_status
                 ON movies.status_id = general_status.id
             LEFT JOIN categories
-                ON movies.category_id = categories.id;`;
-        const [result] = await connection.execute(sql);
+                ON movies.category_id = categories.id
+            WHERE general_status.name = ?;`;
+        const [result] = await connection.execute(sql, ['published']);
         return result;
     } catch (err) {
         return [];
     }
 }
-
