@@ -40,7 +40,7 @@ export async function postCategories(req, res) {
 
     try {
         const sql = `INSERT INTO categories (title, url_slug, status_id, description) VALUES (?, ?, 
-        (SELECT id FROM category_status WHERE name = ?), 
+        (SELECT id FROM general_status WHERE name = ?), 
         ?);`;
         const [response] = await connection.execute(sql, [title, url, status, description]);
 

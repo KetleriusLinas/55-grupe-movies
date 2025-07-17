@@ -60,7 +60,7 @@ export async function postMovies(req, res) {
             INSERT INTO movies
                 (title, url_slug, category_id, status_id, description, release_date, duration_in_minutes, rating)
             VALUES (?, ?, ?,
-                (SELECT id FROM category_status WHERE name = ?),
+                (SELECT id FROM general_status WHERE name = ?),
                 ?, ?, ?, ?);`;
         const [response] = await connection.execute(sql,
             [title, url, category, status, description, releaseDate, duration, rating * 10]

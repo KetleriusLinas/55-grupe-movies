@@ -35,7 +35,7 @@ export async function putCategories(req, res) {
         const sql = `
             UPDATE categories
             SET title = ?, url_slug = ?, description = ?, status_id = (
-                SELECT id FROM category_status WHERE name = ?
+                SELECT id FROM general_status WHERE name = ?
             )
             WHERE url_slug = ?`;
         const [response] = await connection.execute(sql, [title, url, description, status, original_url]);

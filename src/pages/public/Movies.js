@@ -5,10 +5,10 @@ import { moviesListSection } from "../../ui/moviesList.js";
 import { pageTitle } from "../../ui/pageTitle.js";
 
 export class PageMovies extends PageTemplate {
-        constructor(req) {
+    constructor(req) {
         super(req);
     }
-   async main() {
+    async main() {
         return `
             <main>
                 ${pageTitle('Movies')}
