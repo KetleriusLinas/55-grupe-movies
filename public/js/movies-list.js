@@ -2,7 +2,7 @@ const deleteButtonsDOM = document.querySelectorAll('table button');
 
 for (const btnDOM of deleteButtonsDOM) {
     btnDOM.addEventListener('click', () => {
-        fetch('/api/admin/categories/' + btnDOM.dataset.url, {
+        fetch('/api/admin/movies/' + btnDOM.dataset.url, {
             method: 'DELETE',
         })
             .then(res => res.json())
