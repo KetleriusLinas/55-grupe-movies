@@ -3,6 +3,11 @@ import { AdminTemplate } from "../../../templates/AdminTemplate.js";
 import { tableMovies } from "../../../ui/tables/tableMovies.js";
 
 export class PageAdminMoviesPublished extends AdminTemplate {
+    constructor(req) {
+        super(req);
+        this.pageJS = 'movies-list';
+    }
+
     async main() {
         const data = await getPublishedMovies();
 
