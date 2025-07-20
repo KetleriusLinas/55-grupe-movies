@@ -58,7 +58,7 @@ export class PageAdminMoviesView extends AdminTemplate {
                                     </tr>
                                     <tr class="mb-3">
                                         <td>Duration</td>
-                                        <td>${formatDuration(movie.durationInMinutes)}</td>
+                                        <td>${formatDuration(movie.duration_in_minutes)}</td>
                                     </tr>
                                     <tr class="mb-3">
                                         <td>Category</td>
