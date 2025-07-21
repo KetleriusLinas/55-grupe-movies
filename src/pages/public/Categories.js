@@ -1,4 +1,4 @@
-import { getAllPublicCategories } from "../../db/public/getAllPublicCategories.js";
+import { getAllPublicCategories } from "../../db/public/getAllCategories.js";
 import { PageTemplate } from "../../templates/PageTemplate.js";
 import { categoriesListSection } from "../../ui/categoriesList.js";
 import { pageTitle } from "../../ui/pageTitle.js";

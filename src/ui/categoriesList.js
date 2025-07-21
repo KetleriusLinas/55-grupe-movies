@@ -7,7 +7,7 @@ export function categoriesListSection(data) {
                 <h3 class="fs-2 text-body-emphasis">${item.title}</h3>
                 <p>${item.description}</p>
                 <p>Movies count: ${item.moviesCount}</p>
-                <a href="/categories${item.href}" class="icon-link">Read more</a>
+                <a href="/categories/${item.url_slug}" class="icon-link">Read more</a>
             </div>`;
     }
 
