@@ -21,7 +21,7 @@ export function moviesListSection(data) {
                         </a>
                     </div>
                     <div class="col-4 d-none d-lg-block">
-                        <img class="w-100 h-100 object-fit-cover" src="${item.img ? item.img : '/img/default.jpg'}" alt="${item.title}">
+                        <img class="w-100 h-100 object-fit-cover p-1" src="${item.img ? item.img : '/img/default.jpg'}" alt="${item.title}">
                     </div>
                 </div>
             </div>`;

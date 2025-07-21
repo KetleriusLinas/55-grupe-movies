@@ -1,6 +1,6 @@
 import { connection } from "../../db.js";
 
-export async function getPublicCategoryByUrl() {
+export async function getPublicCategoryByUrl(url) {
     try {
         const sql = `
             SELECT
@@ -10,10 +10,8 @@ export async function getPublicCategoryByUrl() {
                 ON categories.status_id = general_status.id
             WHERE general_status.name = "published"
                 AND categories.url_slug = ?;`;
-        const [result] = await connection.execute(sql);
-
+        const [result] = await connection.execute(sql, [url]);
         return result.length ? result[0] : null;
-
     } catch (err) {
         return null;
     }
