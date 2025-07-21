@@ -14,7 +14,7 @@ export class PageAdminMoviesNew extends AdminTemplate {
         for (const cat of categories) {
             categoriesHTML += `<option value="${cat.id}">${cat.title}</option>`;
         }
- 
+
         return `
             <main>
                 <div class="container">
@@ -26,6 +26,12 @@ export class PageAdminMoviesNew extends AdminTemplate {
                 </div>
                 <div class="container">
                     <div class="row">
+                        <form class="col-12 col-md-9 col-lg-6 mb-5">
+                            <img class="w-100" src="/img/files.webp" alt="Movie thumbnail">
+                            <p>/img/default.png</p>
+                            <input type="file" class="form-control" id="img">
+                        </form>
+                        
                         <form class="col-12 col-md-9 col-lg-6">
                             <div class="mb-3">
                                 <label for="title" class="form-label">Title</label>
