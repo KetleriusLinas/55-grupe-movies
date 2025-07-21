@@ -5,10 +5,12 @@ export function tableMovies(data) {
     let nr = 1;
 
     for (const movie of data) {
+        const img = movie.img ? ('/img/movies/' + movie.img) : '/img/default.jpg';
+
         HTML += `
             <tr>
                 <th scope="row">${nr++}</th>
-                <td><img src="#" alt="Movie thumbnail"></td>
+                <td><img src="${img}" alt="Movie thumbnail" style="max-height: 4rem;"></td>
                 <td><a href="/admin/movies/${movie.url_slug}">${movie.title}</a></td>
                 <td>${movie.description
                 ? '<span class="badge text-bg-success">Provided</span>'
@@ -18,9 +20,11 @@ export function tableMovies(data) {
                 <td>${movie.statusName === 'published'
                 ? '<span class="badge text-bg-success">Published</span>'
                 : '<span class="badge text-bg-warning">Draft</span>'}</td>
-                <td class="d-flex gap-3">
-                    <a class="btn btn-primary btn-sm" href="/admin/movies/${movie.url_slug}/edit">Edit</a>
-                    <button data-url="${movie.url_slug}" class="btn btn-danger btn-sm">Delete</button>
+                <td>
+                    <div class="d-flex gap-3">
+                        <a class="btn btn-primary btn-sm" href="/admin/movies/${movie.url_slug}/edit">Edit</a>
+                        <button data-url="${movie.url_slug}" class="btn btn-danger btn-sm">Delete</button>
+                    </div>
                 </td>
             </tr>`;
     }
