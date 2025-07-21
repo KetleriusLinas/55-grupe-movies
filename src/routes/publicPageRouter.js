@@ -5,6 +5,7 @@ import { PageCategories } from '../pages/public/Categories.js';
 import { PageCategoryInner } from '../pages/public/CategoryInner.js';
 import { PageLogin } from '../pages/public/Login.js';
 import { PageRegister } from '../pages/public/Register.js';
+import { PageMovieInner } from '../pages/public/MovieInner.js';
 
 export const publicPageRouter = express.Router();
 
@@ -13,6 +14,7 @@ publicPageRouter.get('/',async (req, res) => {
 });
 
 publicPageRouter.get('/movies',async (req, res) => res.send(await new PageMovies(req).render()));
+publicPageRouter.get('/movies/:movie',async (req, res) => res.send(await new PageMovieInner(req).render()));
 
 publicPageRouter.get('/categories',async (req, res) => res.send(await new PageCategories(req).render())
 );
