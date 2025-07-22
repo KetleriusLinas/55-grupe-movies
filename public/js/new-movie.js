@@ -1,5 +1,8 @@
 const movieImageFormDOM = document.forms[0];
 const imageDOM = document.getElementById('img');
+const imageImgPreviewDOM = document.getElementById('img_preview');
+const imagePathDOM = document.getElementById('img_path');
+
 
 const movieDetailsFormDOM = document.forms[1];
 const titleDOM = document.getElementById('title');
@@ -13,16 +16,19 @@ const ratingDOM = document.getElementById('rating');
 const statusPublishedDOM = document.getElementById('status_published');
 const statusDraftDOM = document.getElementById('status_draft');
 
+
+
 if (movieImageFormDOM) {
     imageDOM.addEventListener('change', () => {
-        console.log(imageDOM.value);
+        const formData = new FormData();
+        formData.append("img", imageDOM.files[0])
+
 
         fetch('/api/admin/upload-image', {
             method: 'POST',
             headers: {
-                // 'Content-Type': 'application/json',
             },
-            // body: JSON.stringify(data),
+            body: formData,
         })
             .then(res => res.json())
             .then(data => {

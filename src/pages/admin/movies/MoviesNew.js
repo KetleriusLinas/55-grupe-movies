@@ -27,9 +27,9 @@ export class PageAdminMoviesNew extends AdminTemplate {
                 <div class="container">
                     <div class="row">
                         <form class="col-12 col-md-9 col-lg-6 mb-5">
-                            <img class="w-100" src="/img/files.webp" alt="Movie thumbnail">
+                            <img id="img_preview" class="w-100" src="/img/files.webp" alt="Movie thumbnail">
                             <p>/img/default.png</p>
-                            <input type="file" class="form-control" id="img">
+                            <input type="file" class="form-control" id="img" name="img">
                         </form>
                         
                         <form class="col-12 col-md-9 col-lg-6">
