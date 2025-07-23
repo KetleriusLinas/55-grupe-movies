@@ -1,8 +1,7 @@
 const movieImageFormDOM = document.forms[0];
 const imageDOM = document.getElementById('img');
-const imageImgPreviewDOM = document.getElementById('img_preview');
+const imagePreviewDOM = document.getElementById('img_preview');
 const imagePathDOM = document.getElementById('img_path');
-
 
 const movieDetailsFormDOM = document.forms[1];
 const titleDOM = document.getElementById('title');
@@ -16,23 +15,21 @@ const ratingDOM = document.getElementById('rating');
 const statusPublishedDOM = document.getElementById('status_published');
 const statusDraftDOM = document.getElementById('status_draft');
 
-
-
 if (movieImageFormDOM) {
     imageDOM.addEventListener('change', () => {
         const formData = new FormData();
-        formData.append("img", imageDOM.files[0])
-
+        formData.append("img", imageDOM.files[0]);
 
         fetch('/api/admin/upload-image', {
             method: 'POST',
-            headers: {
-            },
             body: formData,
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                if (data.status === 'success') {
+                    imagePreviewDOM.src = data.msg;
+                    imagePathDOM.textContent = data.msg;
+                }
             })
             .catch(console.error);
     });
@@ -47,6 +44,7 @@ if (movieDetailsFormDOM) {
             url: urlDOM.value,
             category: +categoryDOM.value,
             status: '',
+            img: imagePathDOM.textContent,
         };
 
         if (descriptionDOM.value) {
