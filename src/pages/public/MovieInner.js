@@ -30,7 +30,7 @@ export class PageMovieInner extends PageTemplate {
                                 <div class="mb-1 text-body-secondary">Duration: ${formatDuration(movie.duration_in_minutes)}</div>
                                 <div class="mb-1 text-body-secondary">Rating: ${formatRating(movie.rating)}</div>
                             </div>
-                            <img src="/img/${img}" alt="Movie thumbnail" class="col-12 col-lg-4">
+                            <img src="/img/${img}" alt="Movie thumbnail" class="col-12 col-lg-4 object-fit-contain">
                         </div>
                     </div>
                 </main>`;

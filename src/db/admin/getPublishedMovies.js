@@ -12,7 +12,8 @@ export async function getPublishedMovies() {
                 ON movies.status_id = general_status.id
             LEFT JOIN categories
                 ON movies.category_id = categories.id
-            WHERE general_status.name = ?;`;
+            WHERE general_status.name = ?
+            ORDER BY movies.id DESC;`;
         const [result] = await connection.execute(sql, ['published']);
         return result;
     } catch (err) {

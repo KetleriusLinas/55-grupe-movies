@@ -11,7 +11,8 @@ export async function getAllMovies() {
             INNER JOIN general_status
                 ON movies.status_id = general_status.id
             LEFT JOIN categories
-                ON movies.category_id = categories.id;`;
+                ON movies.category_id = categories.id
+                ORDER BY movies.id DESC;`;
         const [result] = await connection.execute(sql);
         return result;
     } catch (err) {
