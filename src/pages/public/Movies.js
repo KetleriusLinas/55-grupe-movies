@@ -16,7 +16,7 @@ export class PageMovies extends PageTemplate {
         return `
             <main>
                 ${pageTitle('Movies')}
-                ${moviesFilterForm()}
+                ${await moviesFilterForm(this.req.query)}
                 ${moviesListSection(data)}
             </main>`;
     }

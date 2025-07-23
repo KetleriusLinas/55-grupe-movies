@@ -10,21 +10,21 @@ export class PageAdminMoviesEdit extends AdminTemplate {
     }
 
     async main() {
-
         const moviesData = await getMovieByUrlSlug(this.req.params.urlSlug);
         const movie = moviesData[0];
 
         if (!movie) {
             return `
+            <main>
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
                             <h1 class="display-5">Movie not found</h1>
                         </div>
                     </div>
-                </div>`;
+                </div>
+            </main>`;
         }
-
 
         const categories = await getAllCategories();
         let categoriesHTML = '';
@@ -35,6 +35,8 @@ export class PageAdminMoviesEdit extends AdminTemplate {
 
         const minutes = movie.duration_in_minutes % 60;
         const hours = (movie.duration_in_minutes - minutes) / 60;
+
+        const imgPath = movie.img === 'default.jpg' ? '/img/default.jpg' : '/img/movies/' + movie.img;
 
         return `
             <main>
@@ -47,8 +49,14 @@ export class PageAdminMoviesEdit extends AdminTemplate {
                 </div>
                 <div class="container">
                     <div class="row">
+                        <form class="col-12 col-md-9 col-lg-6 mb-5">
+                            <img id="img_preview" class="w-100 object-fit-contain" src="${imgPath}" alt="Movie thumbnail">
+                            <p id="img_path">${imgPath}</p>
+                            <input type="file" class="form-control" id="img" name="img">
+                        </form>
+
                         <form class="col-12 col-md-9 col-lg-6">
-                                <input value="${movie.url_slug}" type="text" id="original_url" hidden>
+                            <input value="${movie.url_slug}" type="text" id="original_url" hidden>
                             <div class="mb-3">
                                 <label for="title" class="form-label">Title</label>
                                 <input value="${movie.title}" type="text" class="form-control" id="title" required>
@@ -99,7 +107,7 @@ export class PageAdminMoviesEdit extends AdminTemplate {
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Update</button>
-                            <button type="submit" class="btn btn-secondary ms-2">Reset</button>
+                            <button type="reset" class="btn btn-secondary float-end">Reset</button>
                         </form>
                     </div>
                 </div>

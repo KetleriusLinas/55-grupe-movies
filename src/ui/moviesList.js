@@ -7,7 +7,8 @@ export function moviesListSection(data) {
 
     for (const item of data) {
 
-        const img = item.img ? ('movies/' + item.img) : 'default.jpg';
+        const img = item.img === 'default.jpg' ? '/img/default.jpg' : '/img/movies/' + item.img;
+
 
         HTML += `
             <div class="col-md-6">
@@ -24,7 +25,7 @@ export function moviesListSection(data) {
                         </a>
                     </div>
                     <div class="col-4 d-none d-lg-block">
-                        <img class="w-100 h-100 object-fit-cover p-1" src="/img/${img}" alt="${item.title}">
+                        <img class="w-100 h-100 object-fit-cover p-1" src="${img}" alt="${item.title}">
                     </div>
                 </div>
             </div>`;

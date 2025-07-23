@@ -1,3 +1,4 @@
+
 import { getMovieByUrlSlug } from "../../../db/admin/getMovieByUrlSlug.js";
 import { formatDate } from "../../../lib/formatDate.js";
 import { formatDuration } from "../../../lib/formatDuration.js";
@@ -22,7 +23,7 @@ export class PageAdminMoviesView extends AdminTemplate {
                 </main>`;
         }
 
-        const img = movie.img ? ('/img/movies/' + movie.img) : '/img/default.png';
+        const img = movie.img === 'default.jpg' ? '/img/default.jpg' : '/img/movies/' + movie.img;
 
         return `
             <main>
@@ -77,8 +78,7 @@ export class PageAdminMoviesView extends AdminTemplate {
                                         <td>Status</td>
                                         <td>${movie.status === 'published'
                 ? '<span class="badge text-bg-success">Published</span>'
-                : '<span class="badge text-bg-warning">Draft</span>'
-            }</td>
+                : '<span class="badge text-bg-warning">Draft</span>'}</td>
                                     </tr>
                                 </tbody>
                             </table>

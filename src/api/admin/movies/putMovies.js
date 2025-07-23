@@ -19,6 +19,7 @@ export async function putMovies(req, res) {
         duration: 'numberInteger',
         category: 'numberInteger',
         status: 'nonEmptyString',
+        img: 'nonEmptyString',
     }, {
         description: 'nonEmptyString',
         releaseDate: 'nonEmptyString',
@@ -33,8 +34,9 @@ export async function putMovies(req, res) {
     }
 
     const { original_url } = req.params;
-    const { title, url, status, duration } = req.body;
+    const { title, url, status, duration, img } = req.body;
     let { category, description, releaseDate, rating } = req.body;
+    const imgPath = img.split('/').at(-1);
 
     if (category === 0) {
         category = null;
@@ -52,12 +54,12 @@ export async function putMovies(req, res) {
     try {
         const sql = `
             UPDATE movies
-            SET title = ?, url_slug = ?, category_id = ?, status_id = (
+            SET img = ?, title = ?, url_slug = ?, category_id = ?, status_id = (
                 SELECT id FROM general_status WHERE name = ?
             ),  description = ?, release_date = ?, duration_in_minutes = ?, rating = ?
             WHERE url_slug = ?`;
         const [response] = await connection.execute(sql,
-            [title, url, category, status, description, releaseDate, duration, rating * 10, original_url]);
+            [imgPath, title, url, category, status, description, releaseDate, duration, rating * 10, original_url]);
 
         if (response.affectedRows !== 1) {
             return res.status(500).json({
@@ -75,6 +77,6 @@ export async function putMovies(req, res) {
 
     return res.status(200).json({
         status: 'success',
-        msg: 'Sekmingai atnaujinta filmu kategorija',
+        msg: 'Sekmingai atnaujintas filmas',
     });
 }
